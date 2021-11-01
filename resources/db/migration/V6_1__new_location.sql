@@ -1,0 +1,2 @@
+﻿INSERT INTO blank_location(location_name, address, url, phone_number, email, latitude, longitude, ordering_phone, ordering_email, small_imagine_url, large_imagine_url,logo_url, name_without_accents,status)
+   VALUES ('Rex Pizza', 'Strada Bolyai János 9, Cluj-Napoca 400096', 'http://www.pizzarex.ro/', ' 0728878406', 'office@pizzarex.ro', '46°46''15.9"N', ' 23°35''28.9"E', ' 0728878406', 'office@pizzarex.ro', 'images/locations/insomnia_small.jpg', 'images/locations/rex_large.jpg', 'images/locations/rex_logo.jpg','Rex Pizza', 'active');

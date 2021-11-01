@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Server API Test</title>
+    <script type="text/javascript">
+        function addTokenToQueryString(theForm) {
+            var formAction = theForm.action;
+            console.log("Form action", formAction);
+            if(formAction.indexOf("token") < 0){
+                var separator = formAction.indexOf("?") < 0 ? "?" : "&";
+                formAction += separator + "token=" + theForm["token"].value;
+                console.log("New form action", formAction);
+                theForm.action = formAction;
+            }
+        }
+    </script>
+</head>
+<h2>Users</h2>
+<h3>Login</h3>
+<form name="loginForm" method="POST" action="./ws/users/login" target="right">
+    <label for="email">E-mail</label>
+    <input type="text" id="email" name="email" value="nd7275@gmail.com" required> <br>
+    <label for="password">Password</label>
+    <input type="text" id="password" name="password" value="abc" required> <br>
+    <label for="lang">Language</label>
+    <select name="lang" id="lang">
+        <option value="en">English</option>
+        <option value="ro">Română</option>
+        <option value="hu">Magyar</option>
+    </select>
+    <input type="submit" name="submit" value="Send" >
+</form>
+<h3>Change Password</h3>
+<form name="loginForm" method="POST" action="./ws/users/password_change" target="right" onsubmit="addTokenToQueryString(this)">
+    <label for="token">Token</label>
+    <input type="text" name="token" id="token" value="1" required> <br>
+    <label for="old_password">Old password</label>
+    <input type="text" id="old_password" name="old_password" value="abc" required> <br>
+    <label for="new_password">New password</label>
+    <input type="text" id="new_password" name="new_password" value="abc" required> <br>
+    <label for="lang">Language</label>
+    <select name="lang" id="lang">
+        <option value="en">English</option>
+        <option value="ro">Română</option>
+        <option value="hu">Magyar</option>
+    </select>
+    <input type="submit" name="submit" value="Send" >
+</form>
+<h3>Register user</h3>
+<form name="registerForm" method="POST" action="./ws/users/register" target="right">
+    <input type="text" name="first_name" placeholder="First name" required> <br>
+    <input type="text" name="last_name" placeholder="Last name" required> <br>
+    <input type="text" name="birth_year" placeholder="Birth year: 2000" required>
+    <select name="birth_month">
+        <option value="1">January</option>
+        <option value="2">February</option>
+        <option value="3">March</option>
+        <option value="4">April</option>
+        <option value="5">May</option>
+        <option value="6">June</option>
+        <option value="7">July</option>
+        <option value="8">August</option>
+        <option value="9">September</option>
+        <option value="10">October</option>
+        <option value="11">November</option>
+        <option value="12">December</option>
+    </select>
+    <select name="birth_day">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+        <option value="24">24</option>
+        <option value="25">25</option>
+        <option value="26">26</option>
+        <option value="27">27</option>
+        <option value="28">28</option>
+        <option value="29">29</option>
+        <option value="30">30</option>
+        <option value="31">31</option>
+    </select> <br>
+    <input type="text" name="username" placeholder="Username: nd7275@gmail.com" required> <br>
+    <input type="text" name="email" placeholder="Email: nd7275@gmail.com" required> <br>
+    <input type="text" name="password" placeholder="Password: abc" required> <br>
+    <input type="text" name="recommended_by" placeholder="Recommended by: nd7275@gmail.com"> <br>
+    <label for="lang">Language</label>
+    <select name="lang" id="lang">
+        <option value="en">English</option>
+        <option value="ro">Română</option>
+        <option value="hu">Magyar</option>
+    </select>
+    <input type="submit" name="submit" value="Send" >
+</form>
+
+<h3>Update user</h3>
+<form name="updateForm" method="POST" action="./ws/users/update" target="right" onsubmit="addTokenToQueryString(this)">
+    <input type="text" name="first_name" placeholder="First name"> <br>
+    <input type="text" name="last_name" placeholder="Last name"> <br>
+    <input type="text" name="birth_year" placeholder="Birth year: 2000">
+    <select name="birth_month">
+        <option value="1">January</option>
+        <option value="2">February</option>
+        <option value="3">March</option>
+        <option value="4">April</option>
+        <option value="5">May</option>
+        <option value="6">June</option>
+        <option value="7">July</option>
+        <option value="8">August</option>
+        <option value="9">September</option>
+        <option value="10">October</option>
+        <option value="11">November</option>
+        <option value="12">December</option>
+    </select>
+    <select name="birth_day">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+        <option value="24">24</option>
+        <option value="25">25</option>
+        <option value="26">26</option>
+        <option value="27">27</option>
+        <option value="28">28</option>
+        <option value="29">29</option>
+        <option value="30">30</option>
+        <option value="31">31</option>
+    </select> <br>
+    <input type="text" name="username" placeholder="Username: nd7275@gmail.com"> <br>
+    <input type="text" name="email" placeholder="Email: nd7275@gmail.com"> <br>
+	<input type="text" name="token" placeholder="csaba-token" required> <br>
+    <label for="lang">Language</label>
+    <select name="lang" id="lang">
+        <option value="en">English</option>
+        <option value="ro">Română</option>
+        <option value="hu">Magyar</option>
+    </select>
+    <input type="submit" name="submit" value="Send" >
+</form>
+<h3>Generate password</h3>
+<form name="loginForm" method="POST" action="./ws/users/reset_password" target="right">
+    <label for="email">E-mail</label>
+    <input type="text" id="email" name="email" value="1" >
+    <input type="submit" name="submit" value="Send" >
+</form>
+<h2>Activate account</h2>
+<form name="activateForm" method="GET" action="./ws/users/activateAccount" target="right">
+    <label for="token">Token</label>
+    <input type="text" id="token" name="token" value="" required>
+    <input type="submit" name="submit" value="Send" >
+</form>
+
+<h2>Location</h2>
+<h3>Search</h3>
+<form name="searchForm" method="POST" action="./ws/locations/search" target="right" onsubmit="addTokenToQueryString(this)">
+    <label for="token">Token</label>
+    <input type="text" name="token" id="token" value="csaba-token" required> <br>
+    <label for="location_name">location name</label>
+    <input type="text" id="location_name" name="location_name" value="irish" > <br>
+    <label for="sort">Sort</label>
+    <select name="sort" id="sort">
+        <option value="nameasc">Name A-Z</option>
+        <option value="namedesc">Name Z-A</option>
+        <option value="ratingask">Rating 1-10</option>
+        <option value="ratingdesk">Rating 10-1</option>
+    </select><br>
+    <label for="lang">Language</label>
+    <select name="lang" id="lang">
+        <option value="en">English</option>
+        <option value="ro">Română</option>
+        <option value="hu">Magyar</option>
+    </select>
+    <input type="submit" name="submit" value="Send" >
+</form>
+<h3>Fulness rating</h3>
+<form name="commentForm" method="POST" action="./ws/locations/fulness_rating" target="right" onsubmit="addTokenToQueryString(this)">
+    <label for="token">Token</label>
+    <input type="text" name="token" id="token" value="csaba-token" required> <br>
+    <label for="location_id">location id</label>
+    <input type="text" id="location_id" name="location_id" value="11" > <br>
+    <label for="rate">Rating</label>
+    <input type="text" id="rate" name="rate" value="123" > <br>
+    <label for="lang">Language</label>
+    <select name="lang" id="lang">
+        <option value="en">English</option>
+        <option value="ro">Română</option>
+        <option value="hu">Magyar</option>
+    </select>
+    <input type="submit" name="submit" value="Send" >
+</form>
+    <h3>Detailed location data</h3>
+    <form name="commentForm" method="POST" action="./ws/locations/location_details" target="right"">
+        <label for="location_id">location id</label>
+        <input type="text" id="location_id" name="location_id" value="12" > <br>
+        <label for="lang">Language</label>
+        <select name="lang" id="lang">
+            <option value="en">English</option>
+            <option value="ro">Română</option>
+            <option value="hu">Magyar</option>
+        </select>
+        <input type="submit" name="submit" value="Send" >
+</form>
+</body>
+</html>
